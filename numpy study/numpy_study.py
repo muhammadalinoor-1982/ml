@@ -1,5 +1,7 @@
 import numpy as np
 
+# **************** A R R A Y or M A T R I X **********************
+
 aray = np.array([1,2,3,4,5,6,7,8,9])
 print(aray)
 
@@ -108,3 +110,88 @@ print("Number of Dimention or Matrix is: ", mrf.dnim)
 mri = np.random.randint(3,10,5)
 print(mri)
 print("Number of Dimention or Matrix is: ", mri.dnim)
+
+# ****************** D A T A   T Y P E *********************
+dt = np.array([100, 200, 300, 400])
+print("\n", "Data Type: ", dt.dtype)
+
+# Convertion of Data Type
+dtc = np.array([100, 200, 300, 400], dtype = np.int8)
+print("\n", "Data Type: ", dtc.dtype)
+
+# Another Way to Convertion of Data Type
+dtf = np.array([100, 200, 300, 400], dtype = 'f')
+print("\n", "Data Type: ", dtf.dtype)
+print(dtf)
+
+# Change Data Type Using float32() Function
+dtft = np.array([100, 200, 300, 400])
+new = np.float32(dt)
+
+print("\n", "Data Type: ", dtft.dtype)
+print(dtft)
+
+print("\n", "Data Type: ", new.dtype)
+print(new)
+
+# Change Data Type Using astype() Function
+dtff = np.array([100, 200, 300, 400])
+new_1 = dtff.astype(float)
+
+print("\n", "Data Type: ", dtff.dtype)
+print(dtff)
+
+print("\n", "Data Type: ", new_1.dtype)
+print(new_1)
+
+#******************* ARITHMATIC OPERATION IN AARRAY *****************   
+
+# Useful Arithmatic Function:
+# np.add(a,b), np.subtract(a,b), np.multiply(a,b), np.divide(a,b), np.mod(a,b), np.power(a,b), np.reciprocal(1/a) 
+# np.min(x), np.max(x), np.argmin(x), np.sqrt(x), np.sin(x), np.cos(x), np.cumsum(x)  
+
+# Addition with intiger
+m = np.array([100, 200, 300, 400, 500])
+madd = m+3
+print(madd)
+
+# Addition with Array
+m = np.array([100, 200, 300, 400, 500])
+mm = np.array([100, 200, 300, 400, 500])
+madd = m+mm
+print(madd)
+
+# Arithmatic operation using numpy function
+m1 = np.array([100, 200, 300, 400, 500])
+m2 = np.array([100, 200, 300, 400, 500])
+madd = np.add(m1,m2)
+print(madd)
+
+# Addition Using 2D Matrix
+m1 = np.array([[100, 200, 300, 400, 500],[100, 200, 300, 400, 500]])
+m2 = np.array([[100, 200, 300, 400, 500],[100, 200, 300, 400, 500]])
+madd = np.add(m1,m2)
+print(madd)
+
+#  Reciprocal function np.reciprocal(a)
+m = np.array([[100, 200, 300, 400, 500],[100, 200, 300, 400, 500]])
+mm = np.array([[100, 200, 300, 400, 500],[100, 200, 300, 400, 500]])
+madd = np.add(m,mm)
+ras = np.reciprocal(madd)
+print(ras)
+
+# Using np.min(), np.max(), np.argmin(), np.argmax() Function 
+m = np.array([9, 6, 8, 7, 34, 6, 2, 1, 4, 11])
+print("Min : ", np.min(m), ", Min Position : ", np.argmin(m))
+print("Max : ", np.max(m), ", Max Position : ", np.argmax(m))
+
+# Axis in numpy axis=0 indicate row of matrix and axis=1 indicate column of matrix
+m = np.array([[9, 6, 8, 7, 34],[6, 2, 1, 4, 11]])
+print("Min : ", np.min(m, axis=0))
+print("Max : ", np.max(m, axis=1))
+print(np.sqrt(m)) # Square Root Fynction
+
+# cumsum function working addition of pervious value with next value in a 1D matrix
+m = np.array([9, 6, 8, 7, 34])
+print(np.cumsum(m))
+# Result: [ 9 15 23 30 64]
