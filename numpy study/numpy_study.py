@@ -195,3 +195,39 @@ print(np.sqrt(m)) # Square Root Fynction
 m = np.array([9, 6, 8, 7, 34])
 print(np.cumsum(m))
 # Result: [ 9 15 23 30 64]
+
+# ***************** Shap and Reshap Array **************************
+
+# 2D Array/Matrix using shape, to find the shape of Array 
+m = np.array([[9, 6, 8, 7, 34], [9, 6, 8, 7, 34]])
+print(m)
+print(m.shape)
+
+# Multi Dimentional Array/Matrix using shape, to find the shape of Array
+m0 = np.array([[9, 6, 8, 7, 5], [9, 6, 8, 7, 5], [9, 6, 8, 7, 5]], ndmin=6)
+print(m0)
+print(m0.shape)
+
+# Reshape Array/Matrix using reshape
+m = np.array([9, 6, 8, 7, 3, 5])
+x = m.reshape(2,3)
+print(x)
+
+# Reshape 1D Array/Matrix to 3D then again 3D to 1D
+m = np.array([9, 6, 8, 7, 3, 5, 9, 6, 8, 7, 3, 5]) # <<<< 1D
+x = m.reshape(2,3,2) # <<<< 3D
+y = x.reshape(-1) # <<<< 1D
+print(y)
+
+# ***************** Broadcusting **************************
+
+# Rule#1: count from right side, if get 1 between(Array) one of them. Then condition #1 will be justified
+# Rule#2: Both of them(Array) maximum value should be same
+
+# Broadcusting Technique: Addition of 1 by 3 Array with 3 by 1 Array
+m = np.array([1,2,3]) # 1 by 3 Array
+print(m.shape)
+n = np.array([[1],[2],[3]]) # 3 by 1 Array
+print(n.shape)
+o = m + n
+print(o)

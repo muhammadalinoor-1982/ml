@@ -1,3 +1,8 @@
 import numpy as np
-m = np.array([9, 6, 8, 7, 34])
-print(np.cumsum(m))
+m = np.array([[1],[2]])
+print(m.shape)
+n = np.array([[1,2,3], [1,2,3]])
+print(n.shape)
+o = m + n
+print(o)
+
