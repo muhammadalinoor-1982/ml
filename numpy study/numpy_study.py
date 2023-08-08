@@ -231,3 +231,11 @@ n = np.array([[1],[2],[3]]) # 3 by 1 Array
 print(n.shape)
 o = m + n
 print(o)
+
+# Another Example: Addition of 2 by 1 Array with 2 by 3 Array
+m = np.array([[1],[2]])
+print(m.shape)
+n = np.array([[1,2,3], [1,2,3]])
+print(n.shape)
+o = m + n
+print(o)
