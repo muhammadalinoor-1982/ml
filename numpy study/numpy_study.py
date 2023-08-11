@@ -263,3 +263,10 @@ print('slic 56 to start: ',s[:8])
 print('slic array but after 2 steps later: ',s[::2]) # Mention in the square brecat ony number of step (::2)
 print('slic 79 to 56 but after 2 steps later: ',s[2:8:2]) # index of 56 is 8 but n-1 is goes to 7 (n=8 so 8-1=7)
 # (::2) First : use for Start, Second : use for End.
+
+# 3D Array Slicing
+s = np.array([[[65,85,79,35,43,69,88,92,56,77], [65,85,79,35,43,69,88,92,56,77], [65,85,79,35,43,69,88,92,56,77]], [[65,85,79,35,43,69,88,92,56,77], [65,85,79,35,43,69,88,92,56,77], [9,8,7,6,5,4,3,2,1,10]]])
+print('Array',s)
+print('Length of Array',len(s))
+print('Dimention of Array',s.ndim)
+print('slic 7 to 1 with 2 step value: ',s[1,2,2:9:2])
