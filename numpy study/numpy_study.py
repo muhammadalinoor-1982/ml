@@ -239,3 +239,27 @@ n = np.array([[1,2,3], [1,2,3]])
 print(n.shape)
 o = m + n
 print(o)
+
+# ***************** Slicing **************************
+
+# Check Index in an Array
+s = np.array([9,8,7,6,5])
+print('Index of: ', s[2]) # Index of 7
+print('Nagetive Index of: ', s[-3]) # Nagetive Index of 7
+
+# Get The value of Specific Index in a 3D Array
+s = np.array([[[9,8], [7,6], [2,9]], [[45,95], [55, 22], [98, 75]]])
+print('Dimention of Array is : ', s.ndim) 
+print('Get the value of Index [1, -2, -2] is: ', s[1, -2, -2])
+
+# Array Slicing 'start:stop:step'
+s = np.array([65,85,79,35,43,69,88,92,56,77])
+print('Array',s)
+print('Length of Array',len(s))
+print('Dimention of Array',s.ndim)
+print('slic 79 to 92: ',s[2:8])
+print('slic 79 to End: ',s[2:])
+print('slic 56 to start: ',s[:8])
+print('slic array but after 2 steps later: ',s[::2]) # Mention in the square brecat ony number of step (::2)
+print('slic 79 to 56 but after 2 steps later: ',s[2:8:2]) # index of 56 is 8 but n-1 is goes to 7 (n=8 so 8-1=7)
+# (::2) First : use for Start, Second : use for End.
