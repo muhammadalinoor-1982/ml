@@ -270,3 +270,76 @@ print('Array',s)
 print('Length of Array',len(s))
 print('Dimention of Array',s.ndim)
 print('slic 7 to 1 with 2 step value: ',s[1,2,2:9:2])
+
+# ***************** Iteration **************************
+
+# Iteration of 3D Array/Matrix using nditer() function
+m = np.array([[[9,8,7],[6,5,4],[3,2,1]]])
+for i in np.nditer(m):
+    print(i) 
+
+# Use flags=['buffered'] for extra space and op_dtypes=['S'] to convert string data type
+m = np.array([[[9,8,7],[6,5,4],[3,2,1]]])
+for i in np.nditer(m, flags=['buffered'], op_dtypes=['S']):
+    print(i)
+
+# To get Index with Data in a 3D Array/Matrix use ndenumerate() function 
+m = np.array([[[9,8,7],[6,5,4],[3,2,1]]])
+for i,d in np.ndenumerate(m):
+    print(i,d)
+
+# ***************** Basic difference between copy and view **************************
+#  For Copy >> If change original Data: Copy can not change change original Data
+#  For View >> If change original Data: View can change change original Data
+
+# Example of Copy using copy() function
+m = np.array([9,8,7,6,5,4,3,2,1])
+c = m.copy()
+m[1]=80
+print('Original Data: ', m)
+print('Copy Data: ', c)
+# output:
+# Original Data:  [ 9 80  7  6  5  4  3  2  1]
+# Copy Data:  [9 8 7 6 5 4 3 2 1]
+
+# Example of View using view() function
+m = np.array([9,8,7,6,5,4,3,2,1])
+v = m.view()
+m[1]=80
+print('Original Data: ', m)
+print('View Data: ', v)
+# output:
+# Original Data:  [ 9 80  7  6  5  4  3  2  1]
+# View Data:  [9 80 7 6 5 4 3 2 1]
+
+
+# ***************** Join and Split **************************
+# concatenate, stack, array_split
+
+# Join Array using concatenate() function
+m = np.array([[[9,8,7],[6,5,4],[3,2,1]]])
+n = np.array([[[11,12,13],[14,15,16],[17,18,19]]])
+rw = np.concatenate((m,n), axis=0)
+clm = np.concatenate((m,n), axis=1)
+rw_clm = np.concatenate((m,n), axis=2)
+print('Row Concatenate','\n',rw, '\n')
+print('Column Concatenate','\n',clm,'\n')
+print('Row and Column Concatenate','\n',rw_clm)
+
+# Join Array using stack() function
+# Using 'h' with stack funtion like, hstack() output will be 'Horizontal' Array
+# Using 'v' with stack funtion like, vstack() output will be 'Vartical' Array
+# Using 'd' with stack funtion like, dstack() output will be 'Hight' Array
+m = np.array([[[9,8,7],[6,5,4],[3,2,1]]])
+n = np.array([[[11,12,13],[14,15,16],[17,18,19]]])
+horizontal = np.hstack((m,n))
+vartical = np.vstack((m,n))
+hight = np.dstack((m,n))
+print('Horizontal Stack','\n', horizontal , '\n')
+print('Vartical Stack','\n', vartical ,'\n')
+print('Hight Stack','\n', hight)
+
+# To Splite Multi Dimentional Array using array_split() function
+m = np.array([[[9,8,7],[6,5,4],[3,2,1]]])
+x = np.array_split(m, 3, axis=0)
+print(x)
