@@ -343,3 +343,122 @@ print('Hight Stack','\n', hight)
 m = np.array([[[9,8,7],[6,5,4],[3,2,1]]])
 x = np.array_split(m, 3, axis=0)
 print(x)
+
+# ***************** Search, Sort, Search sorted, Filter  **************************
+
+# To know the index of a value using where() Function
+m = np.array([9,8,2,6,9,4,3,2,1])
+x = np.where(m == 2)
+print('index of 2 is: ', x)
+
+# index of mod of 2
+m = np.array([9,8,2,6,9,4,3,2,1])
+x = np.where((m%2) == 0)
+print('index of mod of 2 are: ', x)
+
+# Which will be the index of inserted value in the Array
+m = np.array([9,8,2,6,9,4,3,2,1])
+x = np.searchsorted(m, 5)
+print('index of 5 will be: ', x) 
+
+# Which will be the index of inserted value from right side of the Array
+m = np.array([9,8,2,6,9,4,3,2,1])
+x = np.searchsorted(m, 5, side='right')
+print('index of 5 from right side will be: ', x)
+
+# Which will be the index of inserted Array from right side of the Array
+m = np.array([9,8,2,6,9,4,3,2,1])
+x = np.searchsorted(m, [5,10,7], side='right')
+print('index of given array from right side will be: ', x)
+
+# Sort value in an Array numerically using sort() function
+m = np.array([9,8,2,6,9,4,3,2,1])
+print(np.sort(m))
+
+# Sort value in an Array alfa-numerically using sort() function
+m = np.array([9,8,'x',2,6,9,'a',4,3,'z',2,1,'c'])
+print(np.sort(m))
+
+# Show Filtered (True) value in The Array
+m = np.array([9,8,'x',2,6,9,'a',4,3,'z',2,1,'c'])
+F = [False,False,True,False,False,False,True,False,False,True,False,False,True]
+print(np.sort(m[F]))
+
+# ***************** Shuffle, Unique, Resize, Flatten, Ravel  **************************
+
+# Shuffle an Array using random.shuffle() Function
+m = np.array([9,8,'x',2,6,9,'a',4,3,'z',2,1,'c'])
+np.random.shuffle(m)
+print(m)
+
+# To get Unique value in an Array using unique() Function
+m = np.array([9,8,'x',2,6,9,'a',4,3,'z',2,1,'c'])
+n = np.unique(m)
+print(n)
+
+# When use 'return_index = True' in the unique() Function then get a sorted array with it's position index
+m = np.array([9,8,'x',2,6,9,'a',4,3,'z',2,1,'c'])
+n = np.unique(m, return_index = True)
+print(n)
+
+# When use 'return_counts = True' in the unique() Function then get How many times repet a value in the Array
+m = np.array([9,8,'x',2,6,9,'a',4,3,'z',2,1,'c'])
+n = np.unique(m, return_index = True, return_counts = True)
+print(n)
+
+# Resize 1D Array to 3D Array using resize() Function
+m = np.array([9,8,2,6,9,4,3,2,1])
+n = np.resize(m, (2,2,2))
+print(n)
+
+# Convert 3D Array to 1D Array using flatten() Function
+# Flatten Ord Styler: A,C,F,K
+m = np.array([9,8,2,6,9,4,3,2,1])
+n = np.resize(m, (2,2,2))
+print(n.flatten(order='C'))
+
+# Convert 3D Array to 1D Array using ravel() Function
+# Ravel Ordr Style: A,C,F,K
+m = np.array([9,8,2,6,9,4,3,2,1])
+n = np.resize(m, (2,2,2))
+print(n.ravel(order='F'))
+
+# ***************** Insert, Append, and Delete  **************************
+
+# Insert Value in an Array using insert() function. 
+# Here 'm' is name of Array, '4' is position of index and '90'is a new value of this Array
+m = np.array([9,8,2,6,9,4,3,2,1])
+n = np.insert(m, 4, 90)
+print(n)
+
+# Insert Multiple Value in an Array using insert() function. 
+m = np.array([9,8,2,6,9,4,3,2,1])
+n = np.insert(m, (4,7), (90,100))
+print(n)
+
+# Insert Axis wise Value in a Multi Dimentional Array. 
+m = np.array([9,8,2,6,9,4,3,2,1])
+n = np.resize(m, (2,2,2))
+v = np.insert(n, 2, 100, axis=1) 
+print(v)
+
+# Insert Axis wise Multiple Value in a Multi Dimentional Array. 
+m = np.array([9,8,2,6,9,4,3,2,1])
+n = np.resize(m, (2,2,2))
+v = np.insert(n, 2, [100,200], axis=1) 
+print(v)
+
+# Add Value in an Array using append() Function
+m = np.array([9,8,2,6,9,4,3,2,1])
+v = np.append(m, 500) 
+print(v)
+
+# append() Function using 2D Array
+m = np.array([[9,8,2],[6,9,4],[12,11,19]])
+v = np.append(m, [[100,200,300]], axis=0) 
+print(v)
+
+# Delete index wise single or multiple value using delete() function
+m = np.array([[9,8,2],[6,9,4],[12,11,19]])
+v = np.delete(m, (1,2,3)) 
+print(v)
