@@ -462,3 +462,89 @@ print(v)
 m = np.array([[9,8,2],[6,9,4],[12,11,19]])
 v = np.delete(m, (1,2,3)) 
 print(v)
+
+# ***************** MATRIX: Transpose, Swapaxes, Inverse, Power, Determinate **************************
+
+# Multiply between Two 3x3 2D Matrix
+# Multipy using dot() Function
+'''
+_ _ _
+     |
+     |   Process of Two(Matrix) 3x3 2D Matrix Multiplication
+     |
+
+Mtrx-1  Mtrx-2  Result    ROW to COLUMN Multiplication
+|1 2 3| |1 2 3| |6 12 18| |1x1=1 + 2x1=2 + 3x1=3 sum:1+2+3=6 <> 1x2=2 + 2x2=4 + 3x2=6 sum:2+4+6=12 <> 1x3=3 + 2x3=6 + 3x3=9 sum:3+6+9=18| 
+|1 2 3|X|1 2 3|=|6 12 18| |1x1=1 + 2x1=2 + 3x1=3 sum:1+2+3=6 <> 1x2=2 + 2x2=4 + 3x2=6 sum:2+4+6=12 <> 1x3=3 + 2x3=6 + 3x3=9 sum:3+6+9=18|
+|1 2 3| |1 2 3| |6 12 18| |1x1=1 + 2x1=2 + 3x1=3 sum:1+2+3=6 <> 1x2=2 + 2x2=4 + 3x2=6 sum:2+4+6=12 <> 1x3=3 + 2x3=6 + 3x3=9 sum:3+6+9=18|
+'''
+m = np.matrix([[1,2,3],[1,2,3],[1,2,3]]) 
+n = np.matrix([[1,2,3],[1,2,3],[1,2,3]]) 
+print(m.dot(n))
+
+# Transpose Matrix using transpose() function or T
+m = np.matrix([[1,2,3],[1,2,3],[1,2,3]])   
+print(np.transpose(m))
+# or
+print(m.T) # Shortcut Technique ***
+'''Output:
+[[1 1 1]
+ [2 2 2]
+ [3 3 3]]
+'''
+
+# To Swap 0 axis to 1 axis or 1 axis to 0 axis using swapaxes() function
+m = np.matrix([[1,2,3],[1,2,3],[1,2,3]])   
+print(np.swapaxes(m,0,1)) # 0 Axis to 1 Axis
+'''Output:
+[[1 1 1]
+ [2 2 2]
+ [3 3 3]]
+'''
+
+# Invers Value using linalg.inv() function
+m = np.matrix([[1,2],[3,4]]) 
+print(np.linalg.inv(m))
+'''Output:
+[[-2.   1. ]
+ [ 1.5 -0.5]]
+'''
+
+# Matrix using linalg.matrix_power(n) function
+'''
+Here is a "n" perameter
+if n=0 then perform digonally |1 0|
+                              |0 1|
+if n>0 then perform power(Multiplication)
+if n<0 then perform Invers x  Power
+'''
+# When value of 'n' is positive, linalg.matrix_power() function
+m = np.matrix([[1,2],[3,4]])   
+print(np.linalg.matrix_power(m, 2))
+'''Output:
+[[ 7 10]
+ [15 22]]
+'''
+
+# When value of 'n' is nagetive, linalg.matrix_power() function
+m = np.matrix([[1,2],[3,4]])   
+print(np.linalg.matrix_power(m, -2))
+'''Output:
+[[ 5.5  -2.5 ]
+ [-3.75  1.75]]
+'''
+
+# When n=0, linalg.matrix_power() function
+m = np.matrix([[1,2],[3,4]])   
+print(np.linalg.matrix_power(m, 0))
+'''Output:
+[[1 0]
+ [0 1]]
+'''
+
+# Determinate Matrix using linalg.det() function
+m = np.matrix([[1,2],[3,4]])   
+print(np.linalg.det(m))
+'''Output:
+-2.0000000000000004
+'''
