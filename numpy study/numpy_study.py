@@ -1,6 +1,30 @@
+# Link: https://www.youtube.com/playlist?list=PLjVLYmrlmjGfgBKkIFBkMNGG7qyRfo00W
+
+# **************** Topics **********************
+# 1. Dimention of Array, Check dimention using 'ndim'
+# 2. Some Array Functions: zeros(),  ones(), empty(), arange(), eye(), linspace(), random.rand(), random.ranf(), 
+#                          random.randint()
+# 3. Data Type: dtype, np.int8, np.float32(), astype()
+# 4. Useful Arithmatic Function: np.add(a,b), np.subtract(a,b), np.multiply(a,b), np.divide(a,b), np.mod(a,b), 
+#                                np.power(a,b), np.reciprocal(1/a) np.min(x), np.max(x), np.argmin(x), np.sqrt(x), 
+#                                np.sin(x), np.cos(x), np.cumsum(x)
+# 5. Shap and Reshap Array: shape, reshape()
+# 6. Broadcusting: Addition Between 2 Array
+# 7. Array Slicing: 'start:stop:step'
+# 8. Iteration: nditer(), flags=['buffered'], op_dtypes=['S'], np.ndenumerate()
+# 9. Copy and View: copy(),  view()
+# 10. Join and Split: concatenate(), stack(), array_split()
+# 11. Search, Sort, Search sorted, Filter: where(), np.searchsorted(), sort()
+# 12. shuffle(), unique(), resize(), flatten(), ravel()
+# 13. insert(), append(), and delete()
+# 14. MATRIX: transpose(), swapaxes(), inverse(), power(), determinate(), linalg.inv(), linalg.matrix_power(), 
+#             linalg.det()
+# ______________________________________ END ___________________________________________
+
+
 import numpy as np
 
-# **************** A R R A Y or M A T R I X **********************
+# **************** A R R A Y **********************
 
 aray = np.array([1,2,3,4,5,6,7,8,9])
 print(aray)
@@ -9,6 +33,7 @@ print(aray)
 # timeit function use to execute loop fastly
 # %timeit np.arange(1,9)**4
 
+
 # List to Array Convertion using numpy
 l = []
 for i in range(1,5):
@@ -16,64 +41,66 @@ for i in range(1,5):
     l.append(n)
     print(np.array(l))
 
-# How Calcutale 1D, 2D, 3D Array/Matrix of Dimention. Example Below:
+# How Calcutale 1D, 2D, 3D Array of Dimention. Example Below:
 
-# 1D Matrix or Array -> []
+# 1D Array -> []
 oned = np.array([1,2,3])
 print(oned)
-print("Number of Dimention or Matrix is: ", oned.ndim)
+print("Number of Dimention or Array is: ", oned.ndim)
 
-# 2D Matrix or Array -> [[]]
+# 2D Array -> [[]]
 twod = np.array([[1,2,3],[1,2,3],[1,2,3]])
 print(twod)
-print("Number of Dimention or Matrix is: ", twod.ndim)
+print("Number of Dimention or Array is: ", twod.ndim)
 
-# 3D Matrix or Array -> [[[]]]
+# 3D Array -> [[[]]]
 threed = np.array([[[1,2,3],[1,2,3],[1,2,3],[1,2,3],[1,2,3]]])
 print(threed)
-print("Number of Dimention or Matrix is: ", threed.ndim)
+print("Number of Dimention or Array is: ", threed.ndim)
 
-# Multi Dimention or Matrix or Array
+# Multi Dimention or Array
 ndm = np.array([1,2,3], ndmin = 10)
 print(ndm)
-print("Number of Dimention or Matrix is: ", ndm.ndim)
+print("Number of Dimention or Array is: ", ndm.ndim)
 
-# Array/Matrix using zeros() Function
+# ***********Some Array Functions: zeros(),  ones(), empty(), arange(), eye(), linspace(), random.rand(), random.ranf(), random.randint() **********************
 
-# 4 Columns Matrix using zeros() Function
+# Array using zeros() Function
+
+# 4 Columns Array using zeros() Function
 mz = np.zeros(4)
 print(mz)
 
-# 3 Rows and 4 Columns Matrix (3 by 3 Matrix) using zeros() Function
+# 3 Rows and 4 Columns Array (3 by 3 Array) using zeros() Function
 mz = np.zeros((3,4))
 print(mz)
 print("Number of Dimention or Matrix is: ", mz.dnim)
 
-# Array/Matrix using ones() Function
+# Array using ones() Function
 
-# 4 Columns Matrix using ones() Function
+# 4 Columns Array using ones() Function
 mo = np.ones(4)
 print(mo)
 
-# 3 Rows and 4 Columns Matrix (3 by 3 Matrix) using ones() Function
+# 3 Rows and 4 Columns Array (3 by 3 Array) using ones() Function
 mo = np.ones((3,4))
 print(mo)
-print("Number of Dimention or Matrix is: ", mo.dnim)
+print("Number of Dimention or Array is: ", mo.dnim)
 
 # Empty Array/Matrix using empty() Function
 # Empty Array Contain Previous Data of Memory
 me = np.empty((3,4))
 print(me)
-print("Number of Dimention or Matrix is: ", me.dnim)
+print("Number of Dimention or Array is: ", me.dnim)
 
-# Arrange Array/Matrix using arange() Function
+# Arrange Array using arange() Function
 # Arrange Array Contain Secuence of Numbers like 1,2,3,4,5,6,....
 ma = np.arange(4)
 print(ma)
-print("Number of Dimention or Matrix is: ", ma.dnim)
+print("Number of Dimention or Array is: ", ma.dnim)
 
-# Digonal Array/Matrix using eye() Function
-# Digonal Array/Matrix Contain Secuence combination of 0 and 1 like:
+# Digonal Array using eye() Function
+# Digonal Array Contain Secuence combination of 0 and 1 like:
 '''
 [[1,0,0]
  [0,1,0]
@@ -81,37 +108,37 @@ print("Number of Dimention or Matrix is: ", ma.dnim)
 ''' 
 md = np.eye(3,3)
 print(md)
-print("Number of Dimention or Matrix is: ", md.dnim)
+print("Number of Dimention or eye() is: ", md.dnim)
 
-# Linearly in a space interval of an Array/Matrix using linspace()
+# Linearly in a space interval of an Array using linspace()
 ml = np.linspace(0,20,num=5)
 print(ml)
-print("Number of Dimention or Matrix is: ", ml.ndim)
+print("Number of Dimention or Array is: ", ml.ndim)
 
-# Random Array/Matrix using random.rand() Function to Generate Random value between 0 and 1
+# Random Array using random.rand() Function to Generate Random value between 0 and 1
 mr = np.random.rand(3,3)
 print(mr)
-print("Number of Dimention or Matrix is: ", mr.dnim)
+print("Number of Dimention or Array is: ", mr.dnim)
 
-# Random Array/Matrix using random.randn() Function to Generate Random value and it's close to 0.
+# Random Array using random.randn() Function to Generate Random value and it's close to 0.
 # This function generate positive and nagetive numbers randomly 
 mrn = np.random.randn(3,3)
 print(mrn)
-print("Number of Dimention or Matrix is: ", mrn.dnim)
+print("Number of Dimention or Array is: ", mrn.dnim)
 
-# Random Array/Matrix using random.ranf() Function to Generate Random value and it's very close to 0.
+# Random Array using random.ranf() Function to Generate Random value and it's very close to 0.
 # This function generate numbers between 0.0 to 1.0 randomly 
 mrf = np.random.ranf((3,3))
 print(mrf)
-print("Number of Dimention or Matrix is: ", mrf.dnim)
+print("Number of Dimention or Array is: ", mrf.dnim)
 
-# Random Array/Matrix using random.randint() Function to Generate Random value with Max, Min and Total Numbers.
+# Random Array using random.randint() Function to Generate Random value with Max, Min and Total Numbers.
 # mri = np.random.randint(Max->3, Min->10, Total Numbers of Value->5)  
 mri = np.random.randint(3,10,5)
 print(mri)
-print("Number of Dimention or Matrix is: ", mri.dnim)
+print("Number of Dimention or Array is: ", mri.dnim)
 
-# ****************** D A T A   T Y P E *********************
+# ****************** D A T A   T Y P E: dtype, np.int8, np.float32(), astype() *********************
 dt = np.array([100, 200, 300, 400])
 print("\n", "Data Type: ", dt.dtype)
 
@@ -148,7 +175,7 @@ print(new_1)
 
 # Useful Arithmatic Function:
 # np.add(a,b), np.subtract(a,b), np.multiply(a,b), np.divide(a,b), np.mod(a,b), np.power(a,b), np.reciprocal(1/a) 
-# np.min(x), np.max(x), np.argmin(x), np.sqrt(x), np.sin(x), np.cos(x), np.cumsum(x)  
+# np.min(x), np.max(x), np.argmin(x), np.sqrt(x), np.sin(x), np.cos(x), np.cumsum(x) 
 
 # Addition with intiger
 m = np.array([100, 200, 300, 400, 500])
@@ -185,41 +212,41 @@ m = np.array([9, 6, 8, 7, 34, 6, 2, 1, 4, 11])
 print("Min : ", np.min(m), ", Min Position : ", np.argmin(m))
 print("Max : ", np.max(m), ", Max Position : ", np.argmax(m))
 
-# Axis in numpy axis=0 indicate row of matrix and axis=1 indicate column of matrix
+# Axis in numpy axis=0 indicate row of Array and axis=1 indicate column of Array
 m = np.array([[9, 6, 8, 7, 34],[6, 2, 1, 4, 11]])
 print("Min : ", np.min(m, axis=0))
 print("Max : ", np.max(m, axis=1))
-print(np.sqrt(m)) # Square Root Fynction
+print(np.sqrt(m)) # Square Root Function
 
-# cumsum function working addition of pervious value with next value in a 1D matrix
+# cumsum function working addition of pervious value with next value in a 1D Array
 m = np.array([9, 6, 8, 7, 34])
 print(np.cumsum(m))
 # Result: [ 9 15 23 30 64]
 
-# ***************** Shap and Reshap Array **************************
+# ***************** Shap and Reshap Array: shape, reshape() **************************
 
-# 2D Array/Matrix using shape, to find the shape of Array 
+# 2D Array using shape, to find the shape of Array 
 m = np.array([[9, 6, 8, 7, 34], [9, 6, 8, 7, 34]])
 print(m)
 print(m.shape)
 
-# Multi Dimentional Array/Matrix using shape, to find the shape of Array
+# Multi Dimentional Array using shape, to find the shape of Array
 m0 = np.array([[9, 6, 8, 7, 5], [9, 6, 8, 7, 5], [9, 6, 8, 7, 5]], ndmin=6)
 print(m0)
 print(m0.shape)
 
-# Reshape Array/Matrix using reshape
+# Reshape Array using reshape
 m = np.array([9, 6, 8, 7, 3, 5])
 x = m.reshape(2,3)
 print(x)
 
-# Reshape 1D Array/Matrix to 3D then again 3D to 1D
+# Reshape 1D Array to 3D then again 3D to 1D
 m = np.array([9, 6, 8, 7, 3, 5, 9, 6, 8, 7, 3, 5]) # <<<< 1D
 x = m.reshape(2,3,2) # <<<< 3D
 y = x.reshape(-1) # <<<< 1D
 print(y)
 
-# ***************** Broadcusting **************************
+# ***************** Broadcusting: Addition Between 2 Array **************************
 
 # Rule#1: count from right side, if get 1 between(Array) one of them. Then condition #1 will be justified
 # Rule#2: Both of them(Array) maximum value should be same
@@ -240,7 +267,7 @@ print(n.shape)
 o = m + n
 print(o)
 
-# ***************** Slicing **************************
+# ***************** Array Slicing: 'start:stop:step' **************************
 
 # Check Index in an Array
 s = np.array([9,8,7,6,5])
@@ -271,9 +298,9 @@ print('Length of Array',len(s))
 print('Dimention of Array',s.ndim)
 print('slic 7 to 1 with 2 step value: ',s[1,2,2:9:2])
 
-# ***************** Iteration **************************
+# ***************** Iteration: nditer(), flags=['buffered'], op_dtypes=['S'], np.ndenumerate() **************************
 
-# Iteration of 3D Array/Matrix using nditer() function
+# Iteration of 3D Array using nditer() function
 m = np.array([[[9,8,7],[6,5,4],[3,2,1]]])
 for i in np.nditer(m):
     print(i) 
@@ -283,12 +310,12 @@ m = np.array([[[9,8,7],[6,5,4],[3,2,1]]])
 for i in np.nditer(m, flags=['buffered'], op_dtypes=['S']):
     print(i)
 
-# To get Index with Data in a 3D Array/Matrix use ndenumerate() function 
+# To get Index with Data in a 3D Array use ndenumerate() function 
 m = np.array([[[9,8,7],[6,5,4],[3,2,1]]])
 for i,d in np.ndenumerate(m):
     print(i,d)
 
-# ***************** Basic difference between copy and view **************************
+# ***************** Basic difference between copy and view: copy(),  view()**************************
 #  For Copy >> If change original Data: Copy can not change change original Data
 #  For View >> If change original Data: View can change change original Data
 
@@ -313,8 +340,7 @@ print('View Data: ', v)
 # View Data:  [9 80 7 6 5 4 3 2 1]
 
 
-# ***************** Join and Split **************************
-# concatenate, stack, array_split
+# ***************** Join and Split: concatenate(), stack(), array_split() **************************
 
 # Join Array using concatenate() function
 m = np.array([[[9,8,7],[6,5,4],[3,2,1]]])
@@ -344,7 +370,7 @@ m = np.array([[[9,8,7],[6,5,4],[3,2,1]]])
 x = np.array_split(m, 3, axis=0)
 print(x)
 
-# ***************** Search, Sort, Search sorted, Filter  **************************
+# ***************** Search, Sort, Search sorted, Filter: where(), np.searchsorted(), sort() **************************
 
 # To know the index of a value using where() Function
 m = np.array([9,8,2,6,9,4,3,2,1])
@@ -384,7 +410,7 @@ m = np.array([9,8,'x',2,6,9,'a',4,3,'z',2,1,'c'])
 F = [False,False,True,False,False,False,True,False,False,True,False,False,True]
 print(np.sort(m[F]))
 
-# ***************** Shuffle, Unique, Resize, Flatten, Ravel  **************************
+# ***************** shuffle(), unique(), resize(), flatten(), ravel()  **************************
 
 # Shuffle an Array using random.shuffle() Function
 m = np.array([9,8,'x',2,6,9,'a',4,3,'z',2,1,'c'])
@@ -423,7 +449,7 @@ m = np.array([9,8,2,6,9,4,3,2,1])
 n = np.resize(m, (2,2,2))
 print(n.ravel(order='F'))
 
-# ***************** Insert, Append, and Delete  **************************
+# ***************** insert(), append(), and delete()  **************************
 
 # Insert Value in an Array using insert() function. 
 # Here 'm' is name of Array, '4' is position of index and '90'is a new value of this Array
@@ -463,7 +489,7 @@ m = np.array([[9,8,2],[6,9,4],[12,11,19]])
 v = np.delete(m, (1,2,3)) 
 print(v)
 
-# ***************** MATRIX: Transpose, Swapaxes, Inverse, Power, Determinate **************************
+# ***************** MATRIX: transpose(), swapaxes(), inverse(), power(), determinate() **************************
 
 # Multiply between Two 3x3 2D Matrix
 # Multipy using dot() Function
