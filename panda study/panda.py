@@ -48,3 +48,43 @@ print(y1)
 print(y)
 print(y['b'][2]) # Get Specific value of Specific column
 
+# ******************** Arithmatic Operation: Add, Subs, Mult, Div, Condition *****************
+
+# Addition Operation
+z = pd.DataFrame({'a':[9,8,7], 'b': [6,5,4]})
+z['Addition'] = z['a'] + z['b']
+print(z)
+
+# Apply Condition in DataFrame
+z = pd.DataFrame({'a':[9,8,7], 'b': [6,5,4]})
+z['comp'] = z['a'] <= 8
+z['comp.'] = z['b'] >= 6
+print(z)
+
+# ******************** Insert and Delete *****************
+
+# Insertion using insert() Function
+z = pd.DataFrame({'a':[9,8,7], 'b': [6,5,4]})
+z.insert(2,'new', z['a']) # Insert a column. Column name: new, column index: 2, value of new column: z['a']
+z.insert(3,'new1', [99,88,77]) # Insert a column. Column name: new1, column index: 3, value of new column:[99,88,77]
+z['new2'] = z['new1'][:1] # Insert a column with limited value [:1] Here 1 is index of new1 column
+print(z)
+
+# Delete using pop() or del() Function
+z = pd.DataFrame({'a':[9,8,7], 'b': [6,5,4], 'c':[11,12,13]})
+z1 = z.pop('c') # using pop()
+print(z1)
+print(z)
+
+z = pd.DataFrame({'a':[9,8,7], 'b': [6,5,4], 'c':[11,12,13]})
+del z['b'] # using del()
+print(z)
+
+# ******************** Create CSV File *****************
+
+# Create CSV File using to_csv() Function
+z = pd.DataFrame({'a':[9,8,7], 'b': [6,5,4], 'c':[11,12,13]})
+z.to_csv('create_csv_File.csv')
+z.to_csv('create_csv_File1.csv', index=False) # Create csv file without index
+z.to_csv('create_csv_File2.csv', index=False, header=['ID','Name','Roll']) # Create csv file without index and with Header
+print(z)
