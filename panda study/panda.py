@@ -173,3 +173,39 @@ df.drop(6, axis=0) # Delete 6th row of dataset. here axis=0 is indicate row axis
 
 df.drop('SYMBOL', axis=1) # Delete SYMBOL column of dataset. here axis=1 is indicate column axis
 
+# ********************** dropna() and fillna() Function *************************
+
+df.dropna() # Drop Nan value from csv file
+
+df.dropna(axis=1) # Drop Nan value of column from csv file
+
+df.dropna(axis=0) # Drop Nan value of row from csv file
+
+df.dropna(how = 'any') # Drop fully Nan value of row from csv file
+
+df.dropna(how = 'all') # Drop only which row that all column are Nan from csv file
+
+df.dropna(subset = ['CHANGE']) # Drop specific column's Nan value from csv file
+
+df.dropna(inplace = True)
+df # Drop all Nan value and create a new dataset
+
+df.dropna(thresh = 2) # Drop single Nan value from csv file
+
+df.fillna('noor') # Fill Nan value with peramiter in csv file
+
+df.fillna({'CHANGE':1000, 'AVG VOLUME':'putin'}) # Specific column's Nan value change with specific data
+
+df.fillna(method = 'ffill') # Fill Nan value with forward value (Fill Pervious row's data of Nan row )
+
+df.fillna(method = 'bfill') # Fill Nan value with backward value (Fill Under row's data of Nan row )
+
+df.fillna(method = 'ffill', axis=1) # Fill Nan value with next side column value 
+
+df.fillna(method = 'bfill', axis=1) # Fill Nan value with pervious side column value
+
+df.fillna('TTTT', inplace = True)
+df # Fill all Nan value with peramiter 'TTTT' and create a new dataset
+
+df.fillna('noor', limit = 2) # First 2 Nan value of CSV file, Fill with 'noor'
+
