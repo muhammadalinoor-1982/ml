@@ -88,3 +88,88 @@ z.to_csv('create_csv_File.csv')
 z.to_csv('create_csv_File1.csv', index=False) # Create csv file without index
 z.to_csv('create_csv_File2.csv', index=False, header=['ID','Name','Roll']) # Create csv file without index and with Header
 print(z)
+
+# ******************** Read CSV File **********************
+# Use Google Colab for this Operation
+# First of all Connect with Google Colab to import files
+# Then Upload local machine file into google colab
+#**********************************************************
+
+# Upload file and read data form csv file from google colab
+import pandas as pd
+
+from google.colab import files
+upload_csv_file = files.upload()
+
+df = pd.read_csv("electronic-card-transactions.csv")
+df # Show all csv file data
+
+df = pd.read_csv("electronic-card-transactions.csv", nrows=5)
+df # How many rows what to get
+
+df = pd.read_csv("electronic-card-transactions.csv", usecols=['SYMBOL','CHANGE'])
+df # Get Specific Column
+
+df = pd.read_csv("electronic-card-transactions.csv", usecols=[0,4])
+df # Get Specific Column using index number of column
+
+df = pd.read_csv("electronic-card-transactions.csv", skiprows=[15,21])
+df # Skip Rows
+
+df = pd.read_csv("electronic-card-transactions.csv", index_col=['SYMBOL'])
+df # If need any column replaced with index
+
+df = pd.read_csv("electronic-card-transactions.csv", header = 5)
+df # If need any row replaced with header
+
+df = pd.read_csv("electronic-card-transactions.csv", names = ['col1', 'col2', 'col3', 'col4', 'col5'])
+df # If need change header name
+
+df = pd.read_csv("electronic-card-transactions.csv", header = None, prefix='col')
+df # If header name change with prefix
+
+df = pd.read_csv("electronic-card-transactions.csv", dtype = {'CHANGE':'float'})
+df # Change data type of specific column
+
+# ******************** Some Function of CSV File **********************
+
+df = pd.read_csv("electronic-card-transactions.csv")
+df.head() # Read data from your uploaded csv file from first 5 row of data
+
+df.tail() # Read data from your uploaded csv file from last 5 row of data
+
+df.index # Get the information about index. Example: RangeIndex(start=0, stop=29, step=1)
+
+df.columns # Get to know about columns
+
+df.describe() # Get to know about min, max, 25%, 50%, 75%, std, mean of data
+
+df[19:26] # Get specific range of data (Slicing)
+
+df.index.array # Get index as array with it's length and type
+
+df.to_numpy() # Get Data as numpy array
+
+# Another way to Get Data as numpy array
+import numpy as np
+data = np.asarray(df)
+data
+
+df.sort_index(axis = 0, ascending = False)  # Get data/Index as descending order
+
+df['SYMBOL'][1]='aupu'
+df  # Change data with warning coz it is not right process
+
+df.loc[2, 'SYMBOL'] = 'noor'
+df # Change data without warning coz it is right process
+
+df.loc[[21,22,23,24,25],['SECURITY', 'CHANGE']] # Get Specific data from dataset
+
+df.loc[21:25,['SECURITY', 'CHANGE']] # Another way to get specific data from dataset
+
+df.iloc[27,3] # Another way to get specific data from dataset. here 27 is row of index and 3 is column of index
+
+df.drop(6, axis=0) # Delete 6th row of dataset. here axis=0 is indicate row axis and 1 is column axis
+
+df.drop('SYMBOL', axis=1) # Delete SYMBOL column of dataset. here axis=1 is indicate column axis
+
