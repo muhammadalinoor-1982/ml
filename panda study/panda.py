@@ -209,3 +209,36 @@ df # Fill all Nan value with peramiter 'TTTT' and create a new dataset
 
 df.fillna('noor', limit = 2) # First 2 Nan value of CSV file, Fill with 'noor'
 
+# ********************** Handling Missing Values Using replace() and interpolate() Function *******************
+
+df.replace(to_replace='Total income', value='noor') # Replace 'Total income' with 'noor' using replace() Function
+
+df.replace([2462.5, 2493.37, 80078.0], 100000) # Replace [2462.5, 2493.37, 80078.0] with 100000 using replace() 
+
+df.replace('[A-Za-z]', 'X', regex=True) # Replace '[A-Za-z]' with 'X' using regex=True
+
+df.replace({'SYMBOL': '[A-Z]'}, 100, regex=True) # Replace Alphabetic Column to Numeric Column using Dictionary
+
+df.replace('anything', method='ffill') # Replace 'anything' using method peramiter
+
+df.replace('anything', method='ffill', limit=3) # Replace 'anything' using method and limit peramiter
+
+df.replace('anything', method='ffill', limit=3, implace=True) # Replace 'anything' using method, limit and implace peramiter
+# Note: implace peramiter chnage original data. Implace peramiter do not copy original Data *******************
+
+# Interpolate Function work only numerical not with string *****************
+df.interpolate() # Change Nan Value accrose forward value
+
+df.interpolate(method='linear') # Change Nan Value linearly accrose forward value
+
+df.interpolate(method='linear', axis=0) # All data in dataset must be numerical. Otherwise axis peramiter not work
+
+df.interpolate(limit=3) # Nan Value in all the column, change only 3 row of deta all of them   
+
+df.interpolate(limit_direction='forward', limit=3) # Change Nan Value with limit_direction='forward/backword/both'
+
+df.interpolate(limit_direction='forward', limit=3, inplace=True) # Change with Original data using inplace=True
+
+df.interpolate(limit_area='inside') # Change Nan Value with limit_area='inside/outside'
+
+
