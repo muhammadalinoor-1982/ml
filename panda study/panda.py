@@ -291,7 +291,57 @@ pd.concat([x,x1], axis=1, join='outer') # 'inner' and 'outer'
 # Concat between Two Data Frame using concat() Function with 'axis' and 'keys' perameter
 x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
 x1 = pd.DataFrame({'A':[1,2,3,4,6], 'B':[21,22,23,24,25]})
-pd.concat([x,x1], axis=1, keys=['Aupu','Noor'])
+pd.concat([x,x1], axis=0, keys=['Aupu','Noor'])
 
+# ***************** groupby() Function *****************************
 
+x = pd.DataFrame({'name':['z','g','z','r','g','g','g','x','r','r','x','x'], 
+                  'Noor':[11,12,13,14,15,16,17,18,19,10,20,30],
+                  'Aupu':[99,98,97,96,95,94,93,92,91,100,200,77]})
+xx = x.groupby('name')
+for i,j in xx:
+  print(i)
+  print(j)
+  print()
+
+# IF need specific group of data
+xx.get_group('g')
+# IF need min, max, mean and List of Data Frame
+xx.min()
+xx.max()
+xx.mean()
+li = list(xx)
+print(li)
+
+# ***************** join() and append() *****************************
+
+# join between Two Data Frame using join() Function
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
+x1 = pd.DataFrame({'C':[19,29,39,49,69], 'D':[21,22,23,24,25]})
+x.join(x1)
+
+# If need to change 'index' of Data Frame
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]}, index=['x','y','z','w','w'])
+x1 = pd.DataFrame({'C':[19,29,39,49,69], 'D':[21,22,23,24,25]}, index=['z','w','w','x','y'])
+x.join(x1)
+
+# Use 'how' perameter with it's Atrbuts 'inner', 'outer', 'left', 'right'
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]}, index=['x','y','z','w','w'])
+x1 = pd.DataFrame({'C':[19,29,39], 'D':[21,22,23]}, index=['z','w','w'])
+x.join(x1, how='outer')
+
+# If need to change left or right column name then use 'lsuffix' or 'rsuffix' perameter 
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]}, index=['x','y','z','w','w'])
+x1 = pd.DataFrame({'C':[19,29,39], 'B':[21,22,23]}, index=['z','w','w'])
+x.join(x1, how='outer', lsuffix='-th', rsuffix='_th')
+
+# Append between Two Data Frame using append() Function
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
+x1 = pd.DataFrame({'C':[19,29,39], 'B':[21,22,23]})
+x.append(x1)
+
+# Need to ignore index
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
+x1 = pd.DataFrame({'C':[19,29,39], 'B':[21,22,23]})
+x.append(x1, ignore_index=True)
 
