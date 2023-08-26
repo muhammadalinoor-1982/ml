@@ -241,4 +241,57 @@ df.interpolate(limit_direction='forward', limit=3, inplace=True) # Change with O
 
 df.interpolate(limit_area='inside') # Change Nan Value with limit_area='inside/outside'
 
+# ************************ Merging and Concat **************************
+
+# Merge between Two Data Frame on common column 'A' using 'on' perameter and merge() Function
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
+x1 = pd.DataFrame({'A':[1,2,3,4,5], 'C':[21,22,23,24,25]})
+pd.merge(x,x1, on='A')
+
+# Merge between Two Data Frame using 'how' perameter with inner, outer, left and right
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
+x1 = pd.DataFrame({'A':[1,2,3,4,6], 'C':[21,22,23,24,25]})
+pd.merge(x,x1, how='outer')
+
+# Merge between Two Data Frame using 'how' and 'indicator' perameter
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
+x1 = pd.DataFrame({'A':[1,2,3,4,6], 'C':[21,22,23,24,25]})
+pd.merge(x,x1, how='outer', indicator=True)
+
+# Merge between Two Data Frame using 'left_index' and 'right_index' perameter
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
+x1 = pd.DataFrame({'A':[1,2,3,4,6], 'C':[21,22,23,24,25]})
+pd.merge(x,x1, left_index=True, right_index=True)
+
+# Merge between Two Data Frame using 'left_index', 'right_index' and 'suffixes' perameter
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
+x1 = pd.DataFrame({'A':[1,2,3,4,6], 'B':[21,22,23,24,25]})
+pd.merge(x,x1, left_index=True, right_index=True, suffixes=('Aupu','Noor'))
+
+# Concat between Two Serieses using concat() Function
+x = pd.Series([1,2,3,4,5,11,12,13,14,15])
+x1 = pd.Series([1,2,3,4,6,21,22,23,24,25])
+pd.concat([x,x1])
+
+# Concat between Two Data Frame using concat() Function
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
+x1 = pd.DataFrame({'A':[1,2,3,4,6], 'B':[21,22,23,24,25]})
+pd.concat([x,x1])
+
+# Concat between Two Data Frame using concat() Function with 'axis' perameter
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
+x1 = pd.DataFrame({'A':[1,2,3,4,6], 'B':[21,22,23,24,25]})
+pd.concat([x,x1], axis=0)
+
+# Concat between Two Data Frame using concat() Function with 'axis' and 'join' perameter
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
+x1 = pd.DataFrame({'A':[1,2,3], 'B':[21,22,23]})
+pd.concat([x,x1], axis=1, join='outer') # 'inner' and 'outer'
+
+# Concat between Two Data Frame using concat() Function with 'axis' and 'keys' perameter
+x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
+x1 = pd.DataFrame({'A':[1,2,3,4,6], 'B':[21,22,23,24,25]})
+pd.concat([x,x1], axis=1, keys=['Aupu','Noor'])
+
+
 
