@@ -345,3 +345,26 @@ x = pd.DataFrame({'A':[1,2,3,4,5], 'B':[11,12,13,14,15]})
 x1 = pd.DataFrame({'C':[19,29,39], 'B':[21,22,23]})
 x.append(x1, ignore_index=True)
 
+
+# ***************** pivot(), pivot_table and melt() Function *****************************
+
+# Reshape Data Frame using melt() Function
+x = pd.DataFrame({'days':[1,2,3,4,5,6], 'eng':[11,12,13,14,15,11], 'maths':[21,22,23,24,25,21]})
+x
+pd.melt(x)
+pd.melt(x, id_xs=['eng']) # If need to create ID
+pd.melt(x, x_name=['Noor']) # If need to Change Name
+
+# Reshape Data Frame using pivot() Function
+x = pd.DataFrame({'days':[1,2,3,4,5,6], 
+                  'st_name':['a','b','c','a','b','c'],
+                  'eng':[11,12,13,14,15,11], 
+                  'maths':[21,22,23,24,25,21]})
+x.pivot(index='days', columns='st_name', values='maths')
+
+# Reshape Data Frame using pivot_table() Function with 'aggfunc' perameter and its attributes 'mean','sum', 'count'
+x = pd.DataFrame({'days':[1,1,1,2,1,2], 
+                  'st_name':['a','b','c','a','b','c'],
+                  'eng':[11,12,13,14,15,11], 
+                  'maths':[21,22,23,24,25,21]})
+x.pivot_table(index='st_name', columns='days', aggfunc='count', margins=True)
