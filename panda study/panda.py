@@ -3,6 +3,16 @@
 # Link: https://www.youtube.com/playlist?list=PLjVLYmrlmjGdEE2jFpL71LsVH5QjDP5s4
 
 # Data Structure in pandas: 1. Series(1D Data), 2. Data Frame(2D Data), 3. Panel(3D Data)
+# Arithmatic Operation: Add, Subs, Mult, Div, Condition
+# Insert() and delete() Function
+# to_csv() Function
+# dropna() and fillna() Function 
+# Handling Missing Values Using replace() and interpolate() Function
+# merging() and concat() Function
+# groupby() Function
+# join() and append() Function
+# pivot(), pivot_table and melt() Function 
+
 
 import pandas as pd
 
