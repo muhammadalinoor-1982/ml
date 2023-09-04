@@ -49,4 +49,38 @@ plt.xticks(p+width/2, x, rotation=20) # Show the name of x value
 plt.legend()
 plt.show()
 
+# Show scatter plot using scatter() Function with verious perameter 
+x = [5,1,6,4,9,4,2,2,3,4]
+y = [9,8,3,3,1,6,1,4,1,8]
+z = [6,4,2,6,4,2,4,3,4,8]
+size = [99,89,39,39,19,69,19,49,19,89]
+color = [46,98,24,42,63,51,34,85,74,98]
 
+plt.scatter(x,y, c=color, s=size, marker='^', cmap='viridis')
+plt.scatter(z,y, color='b')
+
+t=plt.colorbar()
+t.set_label('Color Bar')
+plt.title('scatter plot', fontsize=20)
+plt.xlabel('day')
+plt.ylabel('number')
+
+plt.show()
+
+# Show Histogram plot using hist() Function with verious perameter 
+no = [10, 39, 28, 26, 35, 55, 21, 39, 27, 16, 25, 15, 24, 51, 28, 15, 18, 54, 15, 45, 48, 48, 56, 29,
+ 55, 48, 46, 51, 48, 58, 54, 33, 37, 55, 45, 32, 24, 39, 33, 40, 55, 52, 50, 42, 25, 58, 45, 10,
+ 46, 10]
+
+l = [10,20,30,40,50,60] # Use for bins=l, perameter
+
+plt.hist(no, 'auto', (0, 100), edgecolor='black', cumulative=-1, bottom=10, align='mid', histtype='barstacked', orientation='vertical', rwidth=0.8, log=True, label='Test')
+
+plt.title('Histogram plot', fontsize=20)
+plt.xlabel('day')
+plt.ylabel('number')
+plt.axvline(25, color='g', label='Green Line')
+plt.legend()
+plt.grid()
+
+plt.show()
