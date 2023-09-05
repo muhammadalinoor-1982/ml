@@ -84,3 +84,39 @@ plt.legend()
 plt.grid()
 
 plt.show()
+
+# Show PIE Chart plot using pie() Function with verious perameter
+import matplotlib.pyplot as plt
+x = [75, 25, 35, 80, 60, 55] 
+y = ['lichi', 'painapple', 'banana', 'mango', 'orange', 'watermelon']
+ex = [0.1, 0.0, 0.0, 0.0, 0.0, 0.0]
+c = ['r', 'b', 'g', 'y', 'orange', 'black']
+
+plt.pie(x, 
+        labels=y, 
+        explode=ex, 
+        colors=c, 
+        autopct='%0.2f%%', 
+        shadow=True, 
+        radius=1.1,
+        labeldistance=1.1,
+        startangle=90,
+        textprops={'fontsize':15},
+        counterclock=True,
+        wedgeprops={'linewidth':6, 'edgecolor':'lightgreen'},
+        center=(0.1,0.1),
+        rotatelabels=True
+       )
+
+plt.title('PIE Chart')
+plt.legend(loc=4)
+
+plt.show() 
+
+# Show PIE Chart plot using pie() Function with verious perameter
+x = [75, 25, 35, 80, 60, 55]
+y = [78, 35, 30, 85, 65, 50]
+
+plt.stem(x,y, linefmt=':', markerfmt='ro', bottom=0, basefmt='b', label='python', orientation='horizontal' ) # use_line_collection=False
+plt.legend()
+plt.show()
