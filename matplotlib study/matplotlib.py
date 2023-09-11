@@ -120,3 +120,26 @@ y = [78, 35, 30, 85, 65, 50]
 plt.stem(x,y, linefmt=':', markerfmt='ro', bottom=0, basefmt='b', label='python', orientation='horizontal' ) # use_line_collection=False
 plt.legend()
 plt.show()
+
+# Show Box Plot and Whisker Plot using boxplot() Function with verious perameter
+import matplotlib.pyplot as plt
+
+x = [10,20,30,40,50,60,70,120]
+y = [42,66,24,56,43,53,62,44,36,44,160]
+z = [x, y]
+
+plt.boxplot(z, 
+            labels=['X Box Plot', 'Y Box Plot'], 
+            patch_artist=True, 
+            showmeans=True, 
+            whis=1.5, 
+            sym='r*',
+            boxprops=dict(color='black'),
+            capprops=dict(color='g'),
+            whiskerprops=dict(color='b'),
+            flierprops=dict(markeredgecolor='magenta')
+           ) # notch=True, vert=False, widths=0.5
+
+plt.show()
+
+# Show Stack Plot and Area Plot using stacklot() Function with verious perameter
