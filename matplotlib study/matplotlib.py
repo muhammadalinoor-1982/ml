@@ -143,3 +143,88 @@ plt.boxplot(z,
 plt.show()
 
 # Show Stack Plot and Area Plot using stacklot() Function with verious perameter
+import matplotlib.pyplot as plt
+
+w = [10,20,30,40,50,60,70,120]
+x = [42,66,24,56,43,53,62,44]
+y = [72,86,93,22,31,16,71,32]
+z = [89,16,54,67,81,23,16,48]
+l = ['Dhaka', 'Chittagong', 'Khulna']
+
+plt.stackplot(w,x,y,z, labels=l, colors=['r', 'g', 'b'], baseline='zero')
+# baseline='sym','zero','wiggle' 
+
+plt.title('Stack Plot')
+plt.xlabel('x-axis')
+plt.ylabel('y-axis')
+plt.grid()
+
+plt.legend()
+plt.show()
+
+# Step Plot using step() Function with verious perameter
+import matplotlib.pyplot as plt
+
+x = [1,2,3,4,5,6,7,8,9]
+y = [11,22,33,44,55,66,77,88,99]
+
+plt.step(x,y, color='r', marker='*', ms=10, mfc='b', label='Step Plot')
+
+plt.title('Step Plot')
+plt.xlabel('x axis')
+plt.ylabel('y axis')
+plt.legend(loc=4)
+plt.grid()
+plt.show()
+
+# Fill Between Plot using fill_between() Function with verious perameter
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([1,2,3,4,5,6,7,8,9]) 
+y = np.array([11,22,33,44,55,66,77,88,99])
+
+plt.plot(x, y, color='r')
+plt.fill_between(x, y, label='Pick Point', color='g', where=(x>=3)&(x<=7)) #x = [3,8], y1 = 22, y2 = 66,
+
+plt.title('Fill Between Color')
+plt.xlabel('x axis')
+plt.ylabel('y axis')
+plt.grid()
+plt.legend()
+
+plt.show()
+
+# Sub Plot using subplot() Function with verious perameter
+import matplotlib.pyplot as plt
+
+x = np.array([1,2,3,4,5,6,7,8,9]) 
+y = np.array([11,22,33,44,55,66,77,88,99])
+plt.subplot(2,2,4)
+plt.step(x,y, color='r')
+
+plt.pie([1], colors='g')
+plt.subplot(2,2,2)
+
+z = [62,84,14,33,48,49]
+plt.subplot(2,2,3)
+plt.pie(z)
+
+a = ['a', 'b', 'c', 'd', 'e', ]
+b = [24,33,24,43,14]
+plt.subplot(2,2,1)
+plt.bar(a,b)
+
+plt.show()
+
+# Save Figure using savefig() Function with verious perameter
+import matplotlib.pyplot as plt
+
+x = [1,2,3,4,5,6,7,8,9] 
+y = [11,22,33,44,55,66,77,88,99]
+
+plt.bar(x,y, color='r')
+
+plt.savefig('Bar_Plot_inch', dpi=100, facecolor='b', transparent=True, bbox_inches='tight')
+
+plt.show()
