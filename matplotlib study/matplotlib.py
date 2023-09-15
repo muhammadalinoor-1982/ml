@@ -11,6 +11,29 @@
 # Then Type "pip install matplotlib" in command promt
 # Use matplotlib in 2 ways: 'from matplotlib import pyplot as plt' OR 'import matplotlib.pyplot as plt' 
 
+# Function of Plot are: 
+'''
+plot(), 
+show(),
+bar(),
+scatter(),
+hist(), 
+pie(), 
+boxplot(), 
+stackplot(), 
+step(), 
+fill_between(), 
+subplot(), 
+savefig(), 
+xticks(), 
+yticks(), 
+xlim(), 
+ylim(), 
+axis(), 
+text(), 
+annotate(), 
+legend()
+'''
 import matplotlib.pyplot as plt
 # Show symple Linear plot using plot() and show() Function
 x = [1,3,5,7,9]
@@ -142,7 +165,7 @@ plt.boxplot(z,
 
 plt.show()
 
-# Show Stack Plot and Area Plot using stacklot() Function with verious perameter
+# Show Stack Plot and Area Plot using stackplot() Function with verious perameter
 import matplotlib.pyplot as plt
 
 w = [10,20,30,40,50,60,70,120]
@@ -226,5 +249,37 @@ y = [11,22,33,44,55,66,77,88,99]
 plt.bar(x,y, color='r')
 
 plt.savefig('Bar_Plot_inch', dpi=100, facecolor='b', transparent=True, bbox_inches='tight')
+
+plt.show()
+
+# xticks(), yticks(), xlim(), ylim() and axis() Function with verious perameter
+import matplotlib.pyplot as plt
+
+x = [1,2,3,4,5,6,7,8,9] 
+y = [6,8,3,1,3,6,5,5,3]
+
+plt.plot(x,y)
+
+#plt.xticks(x, labels=['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'] )
+#plt.yticks(x)
+
+#plt.xlim(0.10)
+#plt.ylim(0.5)
+
+plt.axis([0,10,0,5])
+
+plt.show()
+
+# text() and annotate() and legend() Function with verious perameter
+import matplotlib.pyplot as plt
+
+x = [1,2,3,4,5,6,7,8,9] 
+y = [6,8,3,1,3,6,5,5,3]
+
+plt.plot(x,y)
+
+plt.text(6,6,'Text Function', fontsize=10, style='italic', color='w', bbox={'facecolor':'r'})
+plt.annotate('An Notate', xy=(3,3), xytext=(5,7), arrowprops=dict(facecolor='b', shrink=10), color='w', bbox={'facecolor':'r'})
+plt.legend(['ok'], loc=9, facecolor='b', edgecolor='r', framealpha=0.3, shadow=True)
 
 plt.show()
