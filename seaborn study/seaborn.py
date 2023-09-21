@@ -149,3 +149,36 @@ plt.show()
 #______________________________________________________________
 sns.violinplot(x=df['body_mass_g'])
 plt.show()
+
+# Pair Plot with it's perameters with GitHub Dataset
+sns.pairplot(
+                df, 
+                #vars=['bill_length_mm','bill_depth_mm'],
+                hue='sex',
+                hue_order=['Female', 'Male'],
+                markers=['o','>']
+                #palette='BuGn'
+                #x_vars=['bill_length_mm','bill_depth_mm'],
+                #kind='kde', # 'kde','hist','scatter','reg'
+                #diag_kind='hist'
+            )
+plt.show()
+
+# Strip Plot with it's perameters with GitHub Dataset
+sns.stripplot(
+                x='island', 
+                y='bill_length_mm', 
+                data=df, 
+                hue='sex', 
+                palette='rocket',
+                linewidth=1,
+                edgecolor='black',
+                jitter=2,
+                size=5,
+                marker='^',
+                alpha=0.9
+             )
+plt.show()
+#___________________________________________________
+sns.stripplot(x=df['bill_length_mm'])
+plt.show()
