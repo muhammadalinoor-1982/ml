@@ -73,3 +73,79 @@ sns.barplot(
             alpha=1
            )
 plt.show()
+
+# Scatter Plot with it's perameters with GitHub Dataset
+sns.scatterplot(
+                x='bill_length_mm', 
+                y='bill_depth_mm', 
+                data=df,
+                hue='sex',
+                style='sex',
+                size='sex',
+                sizes=(50, 100),
+                palette='icefire',
+                alpha=1,
+                markers={'Male':'*', 'Female':'o'}
+               )
+plt.show()
+
+# HeatMap Plot with it's perameters with GitHub Dataset
+w = np.linspace(1,10,20).reshape(4,5)
+w
+
+v = sns.heatmap(w,
+            vmin=0, 
+            vmax=15, 
+            cmap='gist_heat', 
+            annot=True, # annot=df >> use for 'df' variable 
+            annot_kws={'fontsize':10, 'color':'white'},
+            #fmt='s' >> this is use for string (field name)
+            linewidth=5,
+            linecolor='b',
+            cbar=True,
+            xticklabels=True,
+            yticklabels=True,
+           )
+
+v.set(xlabel='mona', ylabel='lisa')
+sns.set(font_scale=0.5)
+
+plt.show()
+#____________________________________________________________________
+a = df.drop(columns=['species', 'island', 'sex'], axis=1).head(10)
+a
+
+sns.heatmap(a)
+plt.show()
+
+# Count Plot with it's perameters with GitHub Dataset
+sns.countplot(
+                x='sex', 
+                data=df, 
+                hue='island', 
+                #palette='bwr',
+                #color='r',
+                #saturation=0.9
+             )
+plt.show()
+
+# Violin Plot with it's perameters with GitHub Dataset
+sns.violinplot(
+                x='island', 
+                y='bill_length_mm', 
+                data=df, 
+                hue='sex', 
+                linewidth=2, 
+                palette='Dark2',
+                order=['Dream', 'Torgersen', 'Biscoe'],
+                #saturation=0.2,
+                #color='r',
+                split=True,
+                scale='count', # 'area', 'width',
+                #inner='quart', # {'point','stick','box','quartile',None}
+                
+              )
+plt.show()
+#______________________________________________________________
+sns.violinplot(x=df['body_mass_g'])
+plt.show()
