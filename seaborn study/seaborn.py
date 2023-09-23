@@ -182,3 +182,66 @@ plt.show()
 #___________________________________________________
 sns.stripplot(x=df['bill_length_mm'])
 plt.show()
+
+# Box Plot with it's perameters with GitHub Dataset
+sns.set(style='whitegrid')
+sns.boxplot( 
+            x='island',
+            y='bill_length_mm', 
+            data=df,
+            hue='sex',
+            #color='r',
+            order=['Dream', 'Torgersen', 'Biscoe'],
+            showmeans=True,
+            meanprops={'marker':'*', 'markeredgecolor':'white'},
+            linewidth=1,
+            palette='plasma',
+            #orient='v'
+           )
+plt.show()
+#__________________________________________________________
+sns.set(style='whitegrid')
+sns.boxplot( 
+            data=df,
+            showmeans=True,
+            meanprops={'marker':'*', 'markeredgecolor':'white'},
+            linewidth=1,
+            palette='plasma',
+            orient='h'
+           )
+plt.show()
+
+# Cat Plot with it's perameters with GitHub Dataset
+#df = pd.read_csv('penguins')
+sns.catplot(
+            x='bill_length_mm', 
+            y='bill_depth_mm', 
+            data=df, 
+            hue='sex',
+            palette='RdPu',
+            height=5,
+            kind='point'
+           )
+# factorplot >> catplot
+# Category: 1) Scatter Plot. 2) Distribution Plot. 3) Estimate Plot
+#1) Scatter Plot: 1) stripplot() with kind='strip'. 2) swarmplot() with kind='swarm'
+#2) Distribution Plot: 1) boxplot() with kind='box'. 2) violinplot() with kind='violin'. 3) boxenplot() with kind='boxen'
+#3) Estimate Plot: 1) pointplot() with kind='point'. 2) barplot() with kind='bar'. 3) countplot() with kind='count'
+plt.show()
+
+# Style Plot with it's perameters with GitHub Dataset
+#1) Figue Style
+#2) Axes Spines
+#3) Scale
+#4) Context
+sns.set_style('darkgrid')
+sns.set_context('paper', font_scale=2) #'poster'
+plt.figure(figsize=(10,5))
+sns.boxplot(x='island', y='bill_length_mm', data=df, palette='cool')
+sns.despine()
+plt.show()
+
+# FacetGrid Plot with it's perameters with GitHub Dataset
+fg = sns.FacetGrid(df, col='island', hue='sex', palette='cool')
+fg.map(plt.scatter, 'bill_length_mm', 'bill_depth_mm', edgecolor='b').add_legend()
+plt.show()
