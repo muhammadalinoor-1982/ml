@@ -1,5 +1,19 @@
 # Source Link: https://www.youtube.com/playlist?list=PLjVLYmrlmjGfhqSO3rF4n02rrj9w2Ch2C
-# 
+
+# Seaborn plot functions:
+'''
+lineplot()
+displot() >> Histogram Plot
+barplot()
+scatterplot()
+heatmap()
+countplot()
+violinplot()
+pairplot()
+stripplot()
+boxplot()
+catplot()
+'''
 
 # Line Plot with it's perameters
 import seaborn as sns
