@@ -99,7 +99,7 @@ z.to_csv('create_csv_File1.csv', index=False) # Create csv file without index
 z.to_csv('create_csv_File2.csv', index=False, header=['ID','Name','Roll']) # Create csv file without index and with Header
 print(z)
 
-# ******************** Read CSV File Google Drive**********************
+# ******************** Read CSV File **********************
 # Use Google Colab for this Operation
 # First of all Connect with Google Colab to import files
 # Then Upload local machine file into google colab
@@ -112,18 +112,7 @@ from google.colab import files
 upload_csv_file = files.upload()
 
 df = pd.read_csv("electronic-card-transactions.csv")
-df # Show all data from csv file
-
-# ******************** Read CSV File From Local Machine**********************
-# Use Google Colab for this Operation
-# Choose file csv file from local machine
-import pandas as pd
-
-from google.colab import files
-access_csv = files.upload()
-# Seeking local csv file from user machine
-df = pd.read_csv("electronic-card-transactions.csv")
-df # Show all data from csv file
+df # Show all csv file data
 
 df = pd.read_csv("electronic-card-transactions.csv", nrows=5)
 df # How many rows what to get
